@@ -9,10 +9,8 @@
 
 ## Requirements
 
-- [CMake v3.30+](https://cmake.org/) or [XMake v2.8.2+](https://github.com/xmake-io/xmake/releases)
+- [XMake v2.8.2+](https://github.com/xmake-io/xmake/releases)
   - Add this to your `PATH`
-- [vcpkg](https://github.com/microsoft/vcpkg)
-  - Create a Windows environment variable called `VCPKG_ROOT` with the value as the path to your vcpkg install directory
 - [Visual Studio 2022 Build Tools](https://visualstudio.microsoft.com/downloads)
   - [LLVM](https://releases.llvm.org/) if using `clang-cl` presets
 - [PowerShell](https://github.com/PowerShell/PowerShell/releases)
