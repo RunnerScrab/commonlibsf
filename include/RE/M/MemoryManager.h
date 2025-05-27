@@ -400,19 +400,19 @@ namespace RE
 	[[nodiscard]] void* operator new(std::size_t a_count)                 \
 	{                                                                     \
 		const auto mem = RE::malloc(a_count);                             \
-		if (mem)                                                          \
-			return mem;                                                   \
+		if (!mem)                                                         \
+			REX::FAIL("out of memory");                                   \
                                                                           \
-		REX::FAIL("out of memory");                                       \
+        return mem;                                                       \
 	}                                                                     \
                                                                           \
 	[[nodiscard]] void* operator new[](std::size_t a_count)               \
 	{                                                                     \
 		const auto mem = RE::malloc(a_count);                             \
-		if (mem)                                                          \
-			return mem;                                                   \
+		if (!mem)                                                         \
+			REX::FAIL("out of memory");                                   \
                                                                           \
-		REX::FAIL("out of memory");                                       \
+		return mem;                                                       \
 	}                                                                     \
                                                                           \
 	void operator delete(void* a_ptr) { RE::free(a_ptr); }                \
