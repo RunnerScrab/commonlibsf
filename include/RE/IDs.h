@@ -406,7 +406,7 @@ namespace RE::ID
 
 	namespace PlayerCharacter
 	{
-		inline constexpr REL::ID Singleton{ 0 };  // 865059
+		inline constexpr REL::ID Singleton{ 922868 };
 	}
 
 	namespace ProcessLists
