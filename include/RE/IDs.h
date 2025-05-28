@@ -599,8 +599,8 @@ namespace RE::ID
 
 	namespace UI
 	{
-		inline constexpr REL::ID Singleton{ 0 };   // 878339
-		inline constexpr REL::ID IsMenuOpen{ 0 };  // 1870208
+		inline constexpr REL::ID Singleton{ 937580 };
+		inline constexpr REL::ID IsMenuOpen{ 130475 };
 	}
 
 	namespace UIMessageQueue
