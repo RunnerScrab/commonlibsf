@@ -397,7 +397,7 @@ namespace RE::ID
 
 	namespace PlayerCamera
 	{
-		inline constexpr REL::ID Singleton{ 0 };         // 878523
+		inline constexpr REL::ID Singleton{ 937788 };
 		inline constexpr REL::ID ForceFirstPerson{ 0 };  // 166029
 		inline constexpr REL::ID ForceThirdPerson{ 0 };  // 166031
 		inline constexpr REL::ID SetCameraState{ 0 };    // 166078
@@ -522,7 +522,7 @@ namespace RE::ID
 
 	namespace TESDataHandler
 	{
-		inline constexpr REL::ID Singleton{ 0 };  // 825890
+		inline constexpr REL::ID Singleton{ 937572 };
 	}
 
 	namespace TESDeathEvent
@@ -574,7 +574,7 @@ namespace RE::ID
 		inline constexpr REL::ID GetLock{ 0 };                 // 107581
 		inline constexpr REL::ID GetParentWorldSpace{ 0 };     // 106696
 		inline constexpr REL::ID GetScale{ 0 };                // 106658
-		inline constexpr REL::ID GetSpaceship{ 0 };            // 173851
+		inline constexpr REL::ID GetSpaceship{ 119881 };
 		inline constexpr REL::ID GetSpaceshipParentDock{ 0 };  // 174134
 		inline constexpr REL::ID GetSpaceshipPilot{ 0 };       // 173834
 		inline constexpr REL::ID GetValue{ 0 };                // 107605
@@ -599,8 +599,8 @@ namespace RE::ID
 
 	namespace UI
 	{
-		inline constexpr REL::ID Singleton{ 0 };   // 878339
-		inline constexpr REL::ID IsMenuOpen{ 0 };  // 1870208
+		inline constexpr REL::ID Singleton{ 937580 };
+		inline constexpr REL::ID IsMenuOpen{ 130475 };
 	}
 
 	namespace UIMessageQueue
