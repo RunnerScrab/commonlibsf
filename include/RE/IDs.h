@@ -522,7 +522,7 @@ namespace RE::ID
 
 	namespace TESDataHandler
 	{
-		inline constexpr REL::ID Singleton{ 937572 };  // 825890
+		inline constexpr REL::ID Singleton{ 937572 };
 	}
 
 	namespace TESDeathEvent
