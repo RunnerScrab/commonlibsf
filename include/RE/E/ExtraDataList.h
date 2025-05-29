@@ -19,7 +19,7 @@ namespace RE
 
 		[[nodiscard]] BSExtraData* GetByType(ExtraDataType a_type) const noexcept
 		{
-			if (HasType(a_type))
+			if (!HasType(a_type))
 				return nullptr;
 
 			for (auto iter = m_head; iter; iter = iter->next)
