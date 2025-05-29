@@ -5,42 +5,42 @@ namespace RE
 	class BSNonReentrantSpinLock
 	{
 	public:
-		void               lock();
-		[[nodiscard]] bool try_lock();
-		void               unlock();
+		void               Lock();
+		[[nodiscard]] bool TryLock();
+		void               Unlock();
 
 	private:
 		// members
-		volatile std::uint32_t _lock{};  // 0
+		volatile std::uint32_t m_lock{};  // 0
 	};
 	static_assert(sizeof(BSNonReentrantSpinLock) == 0x4);
 
 	class BSReadWriteLock
 	{
 	public:
-		void lock_read();
-		void lock_write();
-		void unlock_read();
-		void unlock_write();
+		void LockRead();
+		void LockWrite();
+		void UnlockRead();
+		void UnlockWrite();
 
 	private:
 		// members
-		std::uint32_t          _writerThread{};  // 0
-		volatile std::uint32_t _lock{};          // 4
+		std::uint32_t          m_writerThread{};  // 0
+		volatile std::uint32_t m_lock{};          // 4
 	};
 	static_assert(sizeof(BSReadWriteLock) == 0x8);
 
 	class BSSpinLock
 	{
 	public:
-		void               lock();
-		[[nodiscard]] bool try_lock();
-		void               unlock();
+		void               Lock();
+		[[nodiscard]] bool TryLock();
+		void               Unlock();
 
 	private:
 		// members
-		std::uint32_t          _owningThread{};  // 0
-		volatile std::uint32_t _lock{};          // 4
+		std::uint32_t          m_owningThread{};  // 0
+		volatile std::uint32_t m_lock{};          // 4
 	};
 	static_assert(sizeof(BSSpinLock) == 0x8);
 
@@ -48,8 +48,8 @@ namespace RE
 	struct BSAutoLockDefaultPolicy
 	{
 	public:
-		static void lock(Mutex& a_mutex) { a_mutex.lock(); }
-		static void unlock(Mutex& a_mutex) { a_mutex.unlock(); }
+		static void Lock(Mutex& a_mutex) { a_mutex.Lock(); }
+		static void Unlock(Mutex& a_mutex) { a_mutex.Unlock(); }
 	};
 	static_assert(std::is_empty_v<BSAutoLockDefaultPolicy<BSSpinLock>>);
 
@@ -57,8 +57,8 @@ namespace RE
 	struct BSAutoLockReadLockPolicy
 	{
 	public:
-		static void lock(Mutex& a_mutex) { a_mutex.lock_read(); }
-		static void unlock(Mutex& a_mutex) { a_mutex.unlock_read(); }
+		static void Lock(Mutex& a_mutex) { a_mutex.LockRead(); }
+		static void Unlock(Mutex& a_mutex) { a_mutex.UnlockRead(); }
 	};
 	static_assert(std::is_empty_v<BSAutoLockReadLockPolicy<BSReadWriteLock>>);
 
@@ -66,8 +66,8 @@ namespace RE
 	struct BSAutoLockWriteLockPolicy
 	{
 	public:
-		static void lock(Mutex& a_mutex) { a_mutex.lock_write(); }
-		static void unlock(Mutex& a_mutex) { a_mutex.unlock_write(); }
+		static void Lock(Mutex& a_mutex) { a_mutex.LockWrite(); }
+		static void Unlock(Mutex& a_mutex) { a_mutex.UnlockWrite(); }
 	};
 	static_assert(std::is_empty_v<BSAutoLockWriteLockPolicy<BSReadWriteLock>>);
 
@@ -79,29 +79,27 @@ namespace RE
 		using policy_type = Policy<mutex_type>;
 
 		explicit BSAutoLock(mutex_type& a_mutex) :
-			_lock(std::addressof(a_mutex))
+			m_lock(std::addressof(a_mutex))
 		{
-			policy_type::lock(*_lock);
+			policy_type::Lock(*m_lock);
 		}
 
 		explicit BSAutoLock(mutex_type* a_mutex) :
-			_lock(a_mutex)
+			m_lock(a_mutex)
 		{
-			if (_lock) {
-				policy_type::lock(*_lock);
-			}
+			if (m_lock)
+				policy_type::Lock(*m_lock);
 		}
 
 		~BSAutoLock()
 		{
-			if (_lock) {
-				policy_type::unlock(*_lock);
-			}
+			if (m_lock)
+				policy_type::Unlock(*m_lock);
 		}
 
 	private:
 		// members
-		mutex_type* _lock{};  // 00
+		mutex_type* m_lock{};  // 00
 	};
 	static_assert(sizeof(BSAutoLock<void*>) == 0x8);
 
@@ -126,41 +124,41 @@ namespace RE
 		{
 		public:
 			explicit Guard(U& a_data, Mutex& a_mutex) :
-				_guard(a_mutex),
-				_data(a_data)
+				m_guard(a_mutex),
+				m_data(a_data)
 			{}
 
-			U&       operator*() { return _data; }
-			U&       operator->() { return _data; }
-			const U& operator*() const { return _data; }
-			const U& operator->() const { return _data; }
+			U&       operator*() { return m_data; }
+			U&       operator->() { return m_data; }
+			const U& operator*() const { return m_data; }
+			const U& operator->() const { return m_data; }
 
 		private:
 			// members
-			BSAutoLock<Mutex, Policy> _guard{};  // 0 - Lock guard is first here?
-			U&                        _data;     // 8
+			BSAutoLock<Mutex, Policy> m_guard{};  // 0 - Lock guard is first here?
+			U&                        m_data;     // 8
 		};
 
-		auto lock()
+		auto Lock()
 		{
-			return Guard<T>(_data, _lock);
+			return Guard<T>(m_data, m_lock);
 		}
 
-		auto lock_read() const
+		auto LockRead() const
 			requires std::is_same_v<Mutex, BSReadWriteLock>
 		{
-			return Guard<const T, BSAutoLockReadLockPolicy>(_data, _lock);
+			return Guard<const T, BSAutoLockReadLockPolicy>(m_data, m_lock);
 		}
 
-		auto lock_write()
+		auto LockWrite()
 			requires std::is_same_v<Mutex, BSReadWriteLock>
 		{
-			return Guard<T, BSAutoLockWriteLockPolicy>(_data, _lock);
+			return Guard<T, BSAutoLockWriteLockPolicy>(m_data, m_lock);
 		}
 
 	private:
 		// members
-		T             _data{};  // ??
-		mutable Mutex _lock{};  // ??
+		T             m_data{};  // ??
+		mutable Mutex m_lock{};  // ??
 	};
 }
