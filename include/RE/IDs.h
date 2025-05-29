@@ -14,15 +14,15 @@ namespace RE::ID
 
 	namespace Actor
 	{
-		inline constexpr REL::ID EvaluatePackage{ 0 };          // 150640
-		inline constexpr REL::ID GetActorKnowledge{ 0 };        // 150669
-		inline constexpr REL::ID IsHostileToActor{ 0 };         // 150777
-		inline constexpr REL::ID IsJumping{ 0 };                // 150985
-		inline constexpr REL::ID IsOverEncumbered{ 0 };         // 150999
-		inline constexpr REL::ID IsSneaking{ 0 };               // 151014
-		inline constexpr REL::ID SetSkinTone{ 0 };              // 146270
-		inline constexpr REL::ID UpdateAppearance{ 0 };         // 151216
-		inline constexpr REL::ID UpdateChargenAppearance{ 0 };  // 146273
+		inline constexpr REL::ID EvaluatePackage{ 0 };    // 150640
+		inline constexpr REL::ID GetActorKnowledge{ 0 };  // 150669
+		inline constexpr REL::ID IsHostileToActor{ 0 };   // 150777
+		inline constexpr REL::ID IsJumping{ 0 };          // 150985
+		inline constexpr REL::ID IsOverEncumbered{ 0 };   // 150999
+		inline constexpr REL::ID IsSneaking{ 0 };         // 151014
+		inline constexpr REL::ID SetSkinTone{ 97400 };
+		inline constexpr REL::ID UpdateAppearance{ 101306 };
+		inline constexpr REL::ID UpdateChargenAppearance{ 97399 };
 	}
 
 	namespace ActorUtils
@@ -99,8 +99,7 @@ namespace RE::ID
 
 	namespace BaseExtraList
 	{
-		inline constexpr REL::ID AddExtra{ 0 };   // 83084
-		inline constexpr REL::ID GetByType{ 0 };  // 83208
+		inline constexpr REL::ID AddExtra{ 44736 };
 	}
 
 	namespace BGSAcousticSpaceListener::StackChangedEvent
@@ -247,9 +246,9 @@ namespace RE::ID
 
 	namespace BSNonReentrantSpinLock
 	{
-		inline constexpr REL::ID lock{ 0 };      // 73879
-		inline constexpr REL::ID try_lock{ 0 };  // 74235
-		inline constexpr REL::ID unlock{ 0 };    // 73895
+		inline constexpr REL::ID Lock{ 37396 };
+		inline constexpr REL::ID TryLock{ 0 };  // 74235 - inlined?
+		inline constexpr REL::ID Unlock{ 0 };   // 73895 - inlined?
 	}
 
 	namespace BSPointerHandleManagerInterface
@@ -259,10 +258,10 @@ namespace RE::ID
 
 	namespace BSReadWriteLock
 	{
-		inline constexpr REL::ID lock_read{ 0 };     // 178605
-		inline constexpr REL::ID lock_write{ 0 };    // 34125
-		inline constexpr REL::ID unlock_read{ 0 };   // 178609
-		inline constexpr REL::ID unlock_write{ 0 };  // 34257
+		inline constexpr REL::ID LockRead{ 123862 };
+		inline constexpr REL::ID LockWrite{ 123863 };
+		inline constexpr REL::ID UnlockRead{ 36021 };
+		inline constexpr REL::ID UnlockWrite{ 35983 };
 	}
 
 	namespace BSScript
@@ -311,11 +310,11 @@ namespace RE::ID
 			{
 				namespace NativeFunctionBase
 				{
-					inline constexpr REL::ID Invoke{ 0 };        // 196401
-					inline constexpr REL::ID GetParam{ 0 };      // 196404
-					inline constexpr REL::ID Unk_10{ 0 };        // 196407
-					inline constexpr REL::ID GetParamInfo{ 0 };  // 196409
-					inline constexpr REL::ID Unk_15{ 0 };        // 196408
+					inline constexpr REL::ID Call{ 138074 };
+					inline constexpr REL::ID GetParam{ 138061 };
+					inline constexpr REL::ID GetSourceFilename{ 138065 };
+					inline constexpr REL::ID GetParamInfo{ 138067 };
+					inline constexpr REL::ID Unk_15{ 138068 };
 				}
 			}
 		}
@@ -323,16 +322,16 @@ namespace RE::ID
 
 	namespace BSSpinLock
 	{
-		inline constexpr REL::ID lock{ 0 };      // 178543
-		inline constexpr REL::ID try_lock{ 0 };  // 178545
-		inline constexpr REL::ID unlock{ 0 };    // 178544
+		inline constexpr REL::ID Lock{ 123819 };
+		inline constexpr REL::ID TryLock{ 123818 };
+		inline constexpr REL::ID Unlock{ 35630 };
 	}
 
 	namespace BSStringPool
 	{
 		namespace Entry
 		{
-			inline constexpr REL::ID release{ 139340 };
+			inline constexpr REL::ID Release{ 139340 };
 		}
 
 		namespace BucketTable
@@ -340,8 +339,8 @@ namespace RE::ID
 			inline constexpr REL::ID GetSingleton{ 139337 };
 		}
 
-		inline constexpr REL::ID GetEntry_char_{ 139352 };
-		inline constexpr REL::ID GetEntry_wchar_t_{ 0 };  // 198220
+		inline constexpr REL::ID GetEntry{ 139352 };
+		inline constexpr REL::ID GetEntryW{ 139354 };
 	}
 
 	namespace BSStorage
@@ -371,7 +370,7 @@ namespace RE::ID
 
 	namespace BSTEventSource
 	{
-		inline constexpr REL::ID Notify{ 123824 };
+    inline constexpr REL::ID Notify{ 123824 };
 		inline constexpr REL::ID RegisterSink{ 123821 };
 		inline constexpr REL::ID UnregisterSink{ 123822 };
 	}
@@ -857,7 +856,6 @@ namespace RE::ID
 	namespace ExtraDataList
 	{
 		inline constexpr REL::ID HasQuestObjectAlias{ 0 };  // 83336
-		inline constexpr REL::ID HasType{ 0 };              // 83208
 	}
 
 	namespace FavoritesMenu_AssignQuickkey
@@ -905,8 +903,8 @@ namespace RE::ID
 
 	namespace GameSettingCollection
 	{
-		inline constexpr REL::ID Singleton{ 0 };   // 879099
-		inline constexpr REL::ID GetSetting{ 0 };  // 88638
+		inline constexpr REL::ID Singleton{ 938225 };
+		inline constexpr REL::ID GetSetting{ 49324 };
 	}
 
 	namespace GameVM
@@ -992,12 +990,12 @@ namespace RE::ID
 
 	namespace INIPrefSettingCollection
 	{
-		inline constexpr REL::ID Singleton{ 0 };  // 885866
+		inline constexpr REL::ID Singleton{ 944391 };
 	}
 
 	namespace INISettingCollection
 	{
-		inline constexpr REL::ID Singleton{ 0 };  // 885862
+		inline constexpr REL::ID Singleton{ 944389 };
 	}
 
 	namespace InputEnableLayer
@@ -1541,7 +1539,7 @@ namespace RE::ID
 
 	namespace RegSettingCollection
 	{
-		inline constexpr REL::ID Singleton{ 0 };  // 885510
+		inline constexpr REL::ID Singleton{ 944237 };
 	}
 
 	namespace ReloadWeaponEvent::Event
@@ -1612,28 +1610,29 @@ namespace RE::ID
 			{
 				namespace ObjectInterface
 				{
-					inline constexpr REL::ID ObjectAddRef{ 0 };          // 57288
-					inline constexpr REL::ID ObjectRelease{ 0 };         // 57289
-					inline constexpr REL::ID HasMember{ 0 };             // 57290
-					inline constexpr REL::ID GetMember{ 0 };             // 57291
-					inline constexpr REL::ID SetMember{ 0 };             // 1867815
-					inline constexpr REL::ID Invoke{ 0 };                // 1867816
-					inline constexpr REL::ID VisitMembers{ 0 };          // 57296
-					inline constexpr REL::ID GetArraySize{ 0 };          // 57297
-					inline constexpr REL::ID SetArraySize{ 0 };          // 57298
-					inline constexpr REL::ID GetElement{ 0 };            // 57299
-					inline constexpr REL::ID SetElement{ 0 };            // 57300
-					inline constexpr REL::ID VisitElements{ 0 };         // 57301
-					inline constexpr REL::ID PushBack{ 0 };              // 57303
-					inline constexpr REL::ID PopBack{ 0 };               // 57304
-					inline constexpr REL::ID RemoveElements{ 0 };        // 57305
-					inline constexpr REL::ID GetParent{ 0 };             // 57314
-					inline constexpr REL::ID GetText{ 0 };               // 57324
-					inline constexpr REL::ID SetText{ 0 };               // 57325
-					inline constexpr REL::ID SetTextW{ 0 };              // 57326
-					inline constexpr REL::ID CreateEmptyMovieClip{ 0 };  // 57327
-					inline constexpr REL::ID GotoAndPlayL{ 0 };          // 57329
-					inline constexpr REL::ID GotoAndPlay{ 0 };           // 57330
+					inline constexpr REL::ID AttachMovie{ 169785 };
+					inline constexpr REL::ID CreateEmptyMovieClip{ 169784 };
+					inline constexpr REL::ID GetArraySize{ 169754 };
+					inline constexpr REL::ID GetElement{ 169756 };
+					inline constexpr REL::ID GetMember{ 169748 };
+					inline constexpr REL::ID GetParent{ 169771 };
+					inline constexpr REL::ID GetText{ 169781 };
+					inline constexpr REL::ID GotoAndPlayL{ 169786 };
+					inline constexpr REL::ID GotoAndPlay{ 169787 };
+					inline constexpr REL::ID HasMember{ 169747 };
+					inline constexpr REL::ID Invoke{ 169750 };
+					inline constexpr REL::ID ObjectAddRef{ 169745 };
+					inline constexpr REL::ID ObjectRelease{ 169746 };
+					inline constexpr REL::ID PopBack{ 169761 };
+					inline constexpr REL::ID PushBack{ 169760 };
+					inline constexpr REL::ID RemoveElements{ 169762 };
+					inline constexpr REL::ID SetArraySize{ 169755 };
+					inline constexpr REL::ID SetElement{ 169757 };
+					inline constexpr REL::ID SetMember{ 169749 };
+					inline constexpr REL::ID SetText{ 169782 };
+					inline constexpr REL::ID SetTextW{ 169783 };
+					inline constexpr REL::ID VisitMembers{ 169753 };
+					inline constexpr REL::ID VisitElements{ 169758 };
 				}
 			}
 		}
@@ -2190,7 +2189,7 @@ namespace RE::ID
 
 	namespace TESConditionItem
 	{
-		inline constexpr REL::ID IsTrue{ 0 };  // 116127
+		inline constexpr REL::ID IsTrue{ 71429 };
 	}
 
 	namespace TESContainer
@@ -2273,16 +2272,16 @@ namespace RE::ID
 
 	namespace TESNPC
 	{
-		inline constexpr REL::ID CopyAppearance{ 0 };                 // 111992
-		inline constexpr REL::ID DeriveGeneticParentAppearance{ 0 };  // 112005
+		inline constexpr REL::ID CopyAppearance{ 68122 };
+		inline constexpr REL::ID DeriveGeneticParentAppearance{ 68123 };
 	}
 
 	namespace TESNPCData
 	{
 		namespace ChargenDataModel
 		{
-			inline constexpr REL::ID Singleton{ 0 };  // 879332
-			inline constexpr REL::ID Update{ 0 };     // 100686
+			inline constexpr REL::ID Singleton{ 938438 };
+			inline constexpr REL::ID Update{ 92843 };
 		}
 	}
 
@@ -2311,13 +2310,14 @@ namespace RE::ID
 		inline constexpr REL::ID GetSpaceshipParentDock{ 0 };  // 174134
 		inline constexpr REL::ID GetSpaceshipPilot{ 0 };       // 173834
 		inline constexpr REL::ID GetValue{ 0 };                // 107605
-		inline constexpr REL::ID HasKeyword{ 0 };              // 80343
-		inline constexpr REL::ID IsCrimeToActivate{ 0 };       // 106755
-		inline constexpr REL::ID IsInSpace{ 0 };               // 106767
-		inline constexpr REL::ID IsObjectEquipped{ 0 };        // 106991
-		inline constexpr REL::ID IsSpaceshipDocked{ 0 };       // 174146
-		inline constexpr REL::ID IsSpaceshipLanded{ 0 };       // 173880
-		inline constexpr REL::ID WornHasKeyword{ 0 };          // 106992
+		inline constexpr REL::ID HasKeyword{ 42794 };
+		inline constexpr REL::ID IsCrimeToActivate{ 0 };  // 106755
+		inline constexpr REL::ID IsInSpace{ 63482 };
+		inline constexpr REL::ID IsInSpaceship{ 119881 };
+		inline constexpr REL::ID IsObjectEquipped{ 0 };   // 106991
+		inline constexpr REL::ID IsSpaceshipDocked{ 0 };  // 174146
+		inline constexpr REL::ID IsSpaceshipLanded{ 0 };  // 173880
+		inline constexpr REL::ID WornHasKeyword{ 0 };     // 106992
 	}
 
 	namespace TESPickNewIdleEvent
@@ -2588,12 +2588,9 @@ namespace RE::ID
 		inline constexpr REL::ID GetEventSource{ 0 };  // 144370
 	}
 
-	// global functions/ ids
-	inline constexpr REL::ID RTDynamicCast{ 184372 };
-
-	// idCoreSocket functions
 	inline constexpr REL::ID NET_ErrorString{ 0 };      // 211261
 	inline constexpr REL::ID Net_SockadrToNetadr{ 0 };  // 211262
 	inline constexpr REL::ID NET_WaitForData{ 0 };      // 211263
-	inline constexpr REL::ID Sys_InitNetworking{ 0 };   // 211265
+	inline constexpr REL::ID RTDynamicCast{ 184372 };
+	inline constexpr REL::ID Sys_InitNetworking{ 0 };  // 211265
 }

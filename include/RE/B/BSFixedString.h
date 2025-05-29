@@ -37,7 +37,7 @@ namespace RE
 			BSFixedString(const_pointer a_string)
 			{
 				if (a_string) {
-					GetEntry<value_type>(_data, a_string, CS);
+					BSStringPool::GetEntry(_data, a_string, CS);
 				}
 			}
 
@@ -51,7 +51,7 @@ namespace RE
 				const auto view = static_cast<std::basic_string_view<value_type>>(a_string);
 				if (!view.empty()) {
 					assert(view.data()[view.length()] == value_type{});
-					GetEntry<value_type>(_data, view.data(), CS);
+					BSStringPool::GetEntry(_data, view.data(), CS);
 				}
 			}
 
@@ -81,7 +81,7 @@ namespace RE
 			{
 				try_release();
 				if (a_string) {
-					GetEntry<value_type>(_data, a_string, CS);
+					BSStringPool::GetEntry(_data, a_string, CS);
 				}
 				return *this;
 			}
@@ -97,7 +97,7 @@ namespace RE
 				try_release();
 				if (!view.empty()) {
 					assert(view.data()[view.length()] == value_type{});
-					GetEntry<value_type>(_data, view.data(), CS);
+					BSStringPool::GetEntry(_data, view.data(), CS);
 				}
 				return *this;
 			}
@@ -191,11 +191,11 @@ namespace RE
 			void try_acquire()
 			{
 				if (_data) {
-					_data->acquire();
+					_data->Acquire();
 				}
 			}
 
-			void try_release() { BSStringPool::Entry::release(_data); }
+			void try_release() { BSStringPool::Entry::Release(_data); }
 
 			static constexpr const value_type EMPTY[]{ 0 };
 
