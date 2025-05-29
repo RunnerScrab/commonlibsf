@@ -187,6 +187,7 @@
 #include "RE/B/BSColorCurve.h"
 #include "RE/B/BSContainer.h"
 #include "RE/B/BSCoreTypes.h"
+#include "RE/B/BSCRC32.h"
 #include "RE/B/BSExtraData.h"
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSFloat3DCurve.h"

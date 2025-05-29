@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSCRC32.h"
 #include "RE/B/BSStringPool.h"
 
 namespace RE
@@ -159,6 +160,12 @@ namespace RE
 				return false;
 			}
 
+		protected:
+			template <class>
+			friend struct RE::BSCRC32;
+
+			[[nodiscard]] const void* hash_accessor() const noexcept { return _data; }
+
 		private:
 			template <class, bool>
 			friend class BSFixedString;
@@ -206,6 +213,21 @@ namespace RE
 	using BSFixedStringCS = detail::BSFixedString<char, true>;
 	using BSFixedStringW = detail::BSFixedString<wchar_t, false>;
 	using BSFixedStringWCS = detail::BSFixedString<wchar_t, true>;
+
+	template <class CharT, bool CS>
+	struct BSCRC32<detail::BSFixedString<CharT, CS>>
+	{
+	public:
+		[[nodiscard]] std::uint32_t operator()(const detail::BSFixedString<CharT, CS>& a_key) const noexcept
+		{
+			return BSCRC32<const void*>()(a_key.hash_accessor());
+		}
+	};
+
+	extern template struct BSCRC32<BSFixedString>;
+	extern template struct BSCRC32<BSFixedStringCS>;
+	extern template struct BSCRC32<BSFixedStringW>;
+	extern template struct BSCRC32<BSFixedStringWCS>;
 }
 
 template <class CharT, bool CS>

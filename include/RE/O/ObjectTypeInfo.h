@@ -27,7 +27,7 @@ namespace RE::BSScript
 		};
 
 		// TODO: the rest of this
-		// CopyFromLinkedData() is located at REL::ID(196219) if someone wants to figure this out
+		// CopyFromLinkedData() is located at REL::ID(196219) (pre 1.15) if someone wants to figure this out
 		/***
              * This likely has:
              * userFlagCount

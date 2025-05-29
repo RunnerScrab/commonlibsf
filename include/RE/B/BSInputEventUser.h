@@ -141,10 +141,10 @@ namespace RE
 		virtual void OnCharacterEvent(const CharacterEvent*) { return; }          // 07
 		virtual void OnButtonEvent(const ButtonEvent*) { return; }                // 08
 
-		virtual void InputEventUser_Unk09(const InputEvent* a_event)  // 09
+		virtual bool Unk09(const InputEvent* a_event)  // 09
 		{
-			using func_t = decltype(&BSInputEventUser::InputEventUser_Unk09);
-			static REL::Relocation<func_t> func(REL::ID(178899));
+			using func_t = decltype(&BSInputEventUser::Unk09);
+			static REL::Relocation<func_t> func{ ID::BSInputEventUser::Unk09 };
 			return func(this, a_event);
 		}
 

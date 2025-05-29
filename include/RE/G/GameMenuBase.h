@@ -13,7 +13,7 @@ namespace RE
 		{}
 
 		// members
-		BSFixedString str;
+		BSFixedString str;  // 00
 	};
 
 	class GameMenuBase :
@@ -28,40 +28,38 @@ namespace RE
 		GameMenuBase()
 		{
 			using func_t = GameMenuBase* (*)(GameMenuBase*);
-			static REL::Relocation<func_t> func{ ID::GameMenuBase::Ctor };
+			static REL::Relocation<func_t> func{ ID::GameMenuBase::ctor };
 			func(this);
 		}
 
 		virtual ~GameMenuBase() = default;  // 00
 
-		//override
+		// override
 		virtual std::uint64_t Unk10() override
 		{
 			using func_t = decltype(&GameMenuBase::Unk10);
-			static REL::Relocation<func_t> func(REL::ID(141505));
+			static REL::Relocation<func_t> func{ ID::GameMenuBase::Unk10 };
 			return func(this);
 		};
 
 		virtual std::uint64_t Unk11() override
 		{
 			using func_t = decltype(&GameMenuBase::Unk11);
-			static REL::Relocation<func_t> func(REL::ID(141506));
+			static REL::Relocation<func_t> func{ ID::GameMenuBase::Unk11 };
 			return func(this);
 		};
 
-		//add
+		// add
 		virtual bool Unk1B() { return true; }  //1B
 
-		//custom add
-
-		//Do not set this to true unless your menu SWF has Beth's AS3 event backend.
-		//Otherwise, it will cause a CTD.
+		// Do not set this to true unless your menu SWF has Beth's AS3 event backend.
+		// Otherwise, it will cause a CTD.
 		virtual bool UseEventDispatcher()
 		{
 			return false;
 		}
 
-		//custom override
+		// custom override
 		virtual bool LoadMovie(bool a_addEventDispatcher, bool a_arg2) override
 		{
 			a_addEventDispatcher = UseEventDispatcher();

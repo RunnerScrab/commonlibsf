@@ -97,16 +97,18 @@ namespace RE
 			requires(std::derived_from<T, IMenu>)
 		bool RegisterMenu(const BSFixedString& a_name)
 		{
-			if (menuMap.contains(a_name))
+			if (menuMap.contains(a_name)) {
 				return false;
+			}
 
-			menuMap[a_name].initFunc = [](Scaleform::Ptr<IMenu>* a_menu) {
+			auto RegisterMenuImpl = [](Scaleform::Ptr<IMenu>* a_menu) {
 				using func_t = Scaleform::Ptr<IMenu>*(Scaleform::Ptr<IMenu>*, T*);
-				static REL::Relocation<func_t> copyRef{ REL::ID(80375) };
-				copyRef(a_menu, new T());
+				static REL::Relocation<func_t> func{ ID::UI::RegisterMenu };
+				func(a_menu, new T());
 				return a_menu;
 			};
 
+			menuMap[a_name].initFunc = RegisterMenuImpl;
 			return true;
 		}
 
