@@ -372,8 +372,8 @@ namespace RE::ID
 	namespace BSTEventSource
 	{
 		inline constexpr REL::ID Notify{ 0 };          // 178573
-		inline constexpr REL::ID RegisterSink{ 0 };    // 34452
-		inline constexpr REL::ID UnregisterSink{ 0 };  // 34451
+		inline constexpr REL::ID RegisterSink{ 123821 };
+		inline constexpr REL::ID UnregisterSink{ 123822 };
 	}
 
 	namespace BSTHeapSTLAllocatorBase
