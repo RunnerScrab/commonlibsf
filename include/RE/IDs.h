@@ -370,7 +370,7 @@ namespace RE::ID
 
 	namespace BSTEventSource
 	{
-		inline constexpr REL::ID Notify{ 0 };  // 178573
+    inline constexpr REL::ID Notify{ 123824 };
 		inline constexpr REL::ID RegisterSink{ 123821 };
 		inline constexpr REL::ID UnregisterSink{ 123822 };
 	}
@@ -2214,7 +2214,7 @@ namespace RE::ID
 
 	namespace TESEquipEvent
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 107161
+		inline constexpr REL::ID GetEventSource{ 64135 };
 	}
 
 	namespace TESForm
