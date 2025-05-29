@@ -370,7 +370,7 @@ namespace RE::ID
 
 	namespace BSTEventSource
 	{
-    inline constexpr REL::ID Notify{ 123824 };
+		inline constexpr REL::ID Notify{ 123824 };
 		inline constexpr REL::ID RegisterSink{ 123821 };
 		inline constexpr REL::ID UnregisterSink{ 123822 };
 	}
