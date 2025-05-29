@@ -1401,8 +1401,8 @@ namespace RE::ID
 	namespace PlayerCamera
 	{
 		inline constexpr REL::ID Singleton{ 937788 };
-		inline constexpr REL::ID ForceFirstPerson{ 0 };  // 166029
-		inline constexpr REL::ID ForceThirdPerson{ 0 };  // 166031
+		inline constexpr REL::ID ForceFirstPerson{ 113397 };
+		inline constexpr REL::ID ForceThirdPerson{ 113398 };
 		inline constexpr REL::ID SetCameraState{ 0 };    // 166078
 		inline constexpr REL::ID QCameraEquals{ 0 };     // 166081
 	}
