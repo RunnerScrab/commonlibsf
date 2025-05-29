@@ -69,14 +69,14 @@ namespace RE
 
 		static void GetEntry(BSStringPool::Entry*& a_result, const char* a_string, bool a_caseSensitive)
 		{
-			using func_t = void(*)(BSStringPool::Entry*&, const char*, bool);
+			using func_t = void (*)(BSStringPool::Entry*&, const char*, bool);
 			static REL::Relocation<func_t> func{ ID::BSStringPool::GetEntry };
 			func(a_result, a_string, a_caseSensitive);
 		}
 
 		static void GetEntry(BSStringPool::Entry*& a_result, const wchar_t* a_string, bool a_caseSensitive)
 		{
-			using func_t = void(*)(BSStringPool::Entry*&, const wchar_t*, bool);
+			using func_t = void (*)(BSStringPool::Entry*&, const wchar_t*, bool);
 			static REL::Relocation<func_t> func{ ID::BSStringPool::GetEntryW };
 			func(a_result, a_string, a_caseSensitive);
 		}

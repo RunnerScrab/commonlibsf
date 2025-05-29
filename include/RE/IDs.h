@@ -14,12 +14,12 @@ namespace RE::ID
 
 	namespace Actor
 	{
-		inline constexpr REL::ID EvaluatePackage{ 0 };          // 150640
-		inline constexpr REL::ID GetActorKnowledge{ 0 };        // 150669
-		inline constexpr REL::ID IsHostileToActor{ 0 };         // 150777
-		inline constexpr REL::ID IsJumping{ 0 };                // 150985
-		inline constexpr REL::ID IsOverEncumbered{ 0 };         // 150999
-		inline constexpr REL::ID IsSneaking{ 0 };               // 151014
+		inline constexpr REL::ID EvaluatePackage{ 0 };    // 150640
+		inline constexpr REL::ID GetActorKnowledge{ 0 };  // 150669
+		inline constexpr REL::ID IsHostileToActor{ 0 };   // 150777
+		inline constexpr REL::ID IsJumping{ 0 };          // 150985
+		inline constexpr REL::ID IsOverEncumbered{ 0 };   // 150999
+		inline constexpr REL::ID IsSneaking{ 0 };         // 151014
 		inline constexpr REL::ID SetSkinTone{ 97400 };
 		inline constexpr REL::ID UpdateAppearance{ 101306 };
 		inline constexpr REL::ID UpdateChargenAppearance{ 97399 };
@@ -247,8 +247,8 @@ namespace RE::ID
 	namespace BSNonReentrantSpinLock
 	{
 		inline constexpr REL::ID Lock{ 37396 };
-		inline constexpr REL::ID TryLock{ 0 };   // 74235 - inlined?
-		inline constexpr REL::ID Unlock{ 0 };    // 73895 - inlined?
+		inline constexpr REL::ID TryLock{ 0 };  // 74235 - inlined?
+		inline constexpr REL::ID Unlock{ 0 };   // 73895 - inlined?
 	}
 
 	namespace BSPointerHandleManagerInterface
@@ -2311,13 +2311,13 @@ namespace RE::ID
 		inline constexpr REL::ID GetSpaceshipPilot{ 0 };       // 173834
 		inline constexpr REL::ID GetValue{ 0 };                // 107605
 		inline constexpr REL::ID HasKeyword{ 42794 };
-		inline constexpr REL::ID IsCrimeToActivate{ 0 };       // 106755
+		inline constexpr REL::ID IsCrimeToActivate{ 0 };  // 106755
 		inline constexpr REL::ID IsInSpace{ 63482 };
 		inline constexpr REL::ID IsInSpaceship{ 119881 };
-		inline constexpr REL::ID IsObjectEquipped{ 0 };        // 106991
-		inline constexpr REL::ID IsSpaceshipDocked{ 0 };       // 174146
-		inline constexpr REL::ID IsSpaceshipLanded{ 0 };       // 173880
-		inline constexpr REL::ID WornHasKeyword{ 0 };          // 106992
+		inline constexpr REL::ID IsObjectEquipped{ 0 };   // 106991
+		inline constexpr REL::ID IsSpaceshipDocked{ 0 };  // 174146
+		inline constexpr REL::ID IsSpaceshipLanded{ 0 };  // 173880
+		inline constexpr REL::ID WornHasKeyword{ 0 };     // 106992
 	}
 
 	namespace TESPickNewIdleEvent
@@ -2592,5 +2592,5 @@ namespace RE::ID
 	inline constexpr REL::ID Net_SockadrToNetadr{ 0 };  // 211262
 	inline constexpr REL::ID NET_WaitForData{ 0 };      // 211263
 	inline constexpr REL::ID RTDynamicCast{ 184372 };
-	inline constexpr REL::ID Sys_InitNetworking{ 0 };   // 211265
+	inline constexpr REL::ID Sys_InitNetworking{ 0 };  // 211265
 }
