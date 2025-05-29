@@ -115,10 +115,11 @@ namespace RE
 		{
 			return (currentState == cameraStates[a_cameraState]);
 		}
-	
+
 		// members
 		std::byte unk98[0x188 - 0x98];                // 098
 		void*     cameraStates[CameraState::kTotal];  // 188
+
 		// ...
 	};
 	static_assert(offsetof(PlayerCamera, cameraStates) == 0x188);
