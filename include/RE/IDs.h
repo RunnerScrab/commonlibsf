@@ -882,7 +882,7 @@ namespace RE::ID
 
 	namespace GameMenuBase
 	{
-		inline constexpr REL::ID ctor{ 0 };  // 130577
+		inline constexpr REL::ID ctor{ 0 };   // 130577
 		inline constexpr REL::ID Unk10{ 0 };  // 141505
 		inline constexpr REL::ID Unk11{ 0 };  // 141506
 	}
