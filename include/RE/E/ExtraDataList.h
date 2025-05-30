@@ -25,6 +25,8 @@ namespace RE
 			for (auto iter = m_head; iter; iter = iter->next)
 				if (iter->type == a_type)
 					return iter;
+
+			return nullptr;
 		}
 
 		bool HasType(ExtraDataType a_type) const noexcept

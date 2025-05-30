@@ -368,19 +368,19 @@ namespace RE
 	[[nodiscard]] void* operator new(std::size_t a_count, std::align_val_t a_alignment)              \
 	{                                                                                                \
 		const auto mem = RE::malloc(a_count, static_cast<std::size_t>(a_alignment));                 \
-		if (mem)                                                                                     \
-			return mem;                                                                              \
+		if (!mem)                                                                                    \
+			REX::FAIL("out of memory");                                                              \
                                                                                                      \
-		REX::FAIL("out of memory");                                                                  \
+		return mem;                                                                                  \
 	}                                                                                                \
                                                                                                      \
 	[[nodiscard]] void* operator new[](std::size_t a_count, std::align_val_t a_alignment)            \
 	{                                                                                                \
 		const auto mem = RE::malloc(a_count, static_cast<std::size_t>(a_alignment));                 \
-		if (mem)                                                                                     \
-			return mem;                                                                              \
+		if (!mem)                                                                                    \
+			REX::FAIL("out of memory");                                                              \
                                                                                                      \
-		REX::FAIL("out of memory");                                                                  \
+		return mem;                                                                                  \
 	}                                                                                                \
                                                                                                      \
 	[[nodiscard]] void* operator new(std::size_t, void* a_ptr) { return a_ptr; }                     \

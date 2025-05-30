@@ -26,9 +26,9 @@ namespace SFSE
 			std::string_view pluginAuthor{};
 			REL::Version     pluginVersion{};
 
-			std::uint32_t                                    sfseVersion{};
-			PluginHandle                                     pluginHandle{ static_cast<PluginHandle>(-1) };
-			std::function<const void*(SFSEAPI)(const char*)> pluginInfoAccessor;
+			std::uint32_t                           sfseVersion{};
+			PluginHandle                            pluginHandle{ static_cast<PluginHandle>(-1) };
+			std::function<const void*(const char*)> pluginInfoAccessor;
 
 			TrampolineInterface* trampolineInterface{ nullptr };
 			MessagingInterface*  messagingInterface{ nullptr };

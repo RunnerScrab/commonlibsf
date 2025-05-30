@@ -105,15 +105,15 @@ namespace RE
 			}
 
 			if (!_allocator) {
-				REX::FAIL("failed to get thread scrap heap"sv);
+				REX::FAIL("failed to get thread scrap heap");
 			}
 
 			const auto mem = _allocator->Allocate(a_size, alignof(void*));
 			if (!mem) {
-				REX::FAIL("failed to handle allocation request"sv);
-			} else {
-				return mem;
+				REX::FAIL("failed to handle allocation request");
 			}
+
+			return mem;
 		}
 
 		void deallocate(void* a_ptr)
@@ -121,7 +121,7 @@ namespace RE
 			if (_allocator) {
 				_allocator->Deallocate(a_ptr, 0);
 			} else {
-				REX::FAIL("failed to deallocate block"sv);
+				REX::FAIL("failed to deallocate block");
 			}
 		}
 

@@ -15,8 +15,8 @@ namespace RE
 		{}
 
 		BSTScatterTableDefaultKVStorage(const BSTScatterTableDefaultKVStorage& a_rhs) :
-			key(a_rhs.Key),
-			value(a_rhs.Value)
+			key(a_rhs.key),
+			value(a_rhs.value)
 		{}
 
 		BSTScatterTableDefaultKVStorage(const std::pair<T1, T2>& pair) :

@@ -7,7 +7,7 @@ namespace SFSE
 	using Trampoline = REL::Trampoline;
 
 	// DEPRECATED
-	[[nodiscard]] REL::Trampoline& GetTrampoline() noexcept
+	[[nodiscard]] inline REL::Trampoline& GetTrampoline() noexcept
 	{
 		return REL::GetTrampoline();
 	}
