@@ -2389,8 +2389,8 @@ namespace RE::ID
 
 	namespace UIMessageQueue
 	{
-		inline constexpr REL::ID Singleton{ 0 };   // 878637
-		inline constexpr REL::ID AddMessage{ 0 };  // 187268
+		inline constexpr REL::ID Singleton{ 937897 };
+		inline constexpr REL::ID AddMessage{ 130659 };
 	}
 
 	namespace UnlockedTerminalElementEvent
