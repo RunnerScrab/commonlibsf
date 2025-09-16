@@ -1,47 +1,40 @@
 # CommonLibSF
 
-## A collaborative reverse-engineered library for Starfield
+### Requirements
+* [XMake](https://xmake.io) [2.8.2+]
+* C++23 Compiler (MSVC or Clang-CL)
 
-[![C++23](https://img.shields.io/static/v1?label=standard&message=c%2B%2B23&color=blue&logo=c%2B%2B&&logoColor=red&style=flat)](https://en.cppreference.com/w/cpp/compiler_support)
-![Platform](https://img.shields.io/static/v1?label=platform&message=windows&color=dimgray&style=flat&logo=windows)
-[![Game version](https://img.shields.io/badge/game%20version-1.14.70-orange)](#Developing-with-CommonLibSF)
-[![Main CI](https://img.shields.io/github/actions/workflow/status/Starfield-Reverse-Engineering/CommonLibSF/main_ci.yml)](https://github.com/Starfield-Reverse-Engineering/CommonLibSF/actions/workflows/main_ci.yml)
+## Getting Started
+```bat
+git clone --recurse-submodules https://github.com/libxse/commonlibsf
+cd commonlibsf
+```
 
-## Requirements
+### Build
+To build the project, run the following command:
+```bat
+xmake build
+```
 
-- [XMake v2.8.2+](https://github.com/xmake-io/xmake/releases)
-  - Add this to your `PATH`
-- [Visual Studio 2022 Build Tools](https://visualstudio.microsoft.com/downloads)
-  - [LLVM](https://releases.llvm.org/) if using `clang-cl` presets
-- [PowerShell](https://github.com/PowerShell/PowerShell/releases)
+> ***Note:*** *This will generate a `build/windows/` directory in the **project's root directory** with the build output.*
 
-## Developing with CommonLibSF
+### Project Generation (Optional)
+If you want to generate a Visual Studio project, run the following command:
+```bat
+xmake project -k vsxmake
+```
 
-### Using the CommonLibSF plugin templates
-
-- [CLibSFPluginTemplate](https://github.com/Starfield-Reverse-Engineering/CLibSFPluginTemplate)
-  - Uses **CMake**. Consumes CommonLibSF as [vcpkg port](https://github.com/Starfield-Reverse-Engineering/CommonLibSF-vcpkg).
-- [commonlibsf-template-xmake](https://github.com/Starfield-Reverse-Engineering/commonlibsf-template-xmake)
-  - Uses **XMake**. Consumes CommonLibSF as an [xrepo package](https://github.com/Starfield-Reverse-Engineering/commonlibsf-xrepo), a git submodule, or a local fork.
-
-### Please see the [Using CommonLibSF wiki page](https://github.com/Starfield-Reverse-Engineering/CommonLibSF/wiki/Using-CommonLibSF) for more information about using CommonLibSF.
-
-## End-User Requirements
-
-- [Starfield Script Extender](https://www.nexusmods.com/starfield/mods/106)
-- [Address Library for SFSE Plugins](https://www.nexusmods.com/starfield/mods/3256)
+> ***Note:*** *This will generate a `vsxmakeXXXX/` directory in the **project's root directory** using the latest version of Visual Studio installed on the system.*
 
 ## Notes
 
 CommonLibSF is intended to replace SFSE as a static dependency. However, the runtime component of SFSE is still required.
 
-You may download the PDB for the latest build of CommonLibSF via the [Update PDB](https://github.com/Starfield-Reverse-Engineering/CommonLibSF/actions/workflows/update_pdb.yml) workflow. This is useful for importing the latest type information into IDA using the "Import PDB" feature.
-
 ## License
 
 [GPL-3.0-or-later][LICENSE] WITH [Modding Exception AND GPL-3.0 Linking Exception (with Corresponding Source)](EXCEPTIONS).
 
-Specifically, the **Modded Code** is Starfield (and its variants) and **Modding Libraries** include [SFSE](https://sfse.silverlock.org/) ([GitHub link](https://github.com/ianpatt/sfse)).
+Specifically, the **Modded Code** is Starfield (and its variants) and **Modding Libraries** include [SFSE](https://sfse.silverlock.org/) ([GitHub](https://github.com/ianpatt/sfse)).
 
 It is recommended to read the [FSF FAQ](https://www.gnu.org/licenses/gpl-faq.en.html) for a full explanation on what this license requires.
 
