@@ -184,49 +184,50 @@ namespace RE
 		std::uint64_t                                                                    unkC0;                          // 00C0
 		std::uint64_t                                                                    unkC8;                          // 00C8
 		std::uint64_t                                                                    unkD0;                          // 00D0
-		BSTSmartPointer<BSScript::IVirtualMachine>                                       impl;                           // 00D8
-		BSScript::IVMSaveLoadInterface*                                                  saveLoadInterface;              // 00E0
-		BSScript::IVMDebugInterface*                                                     debugInterface;                 // 00E8
-		BSScript::SimpleAllocMemoryPagePolicy                                            memoryPagePolicy;               // 00F0
-		BSScript::CompiledScriptLoader                                                   scriptLoader;                   // 0120
-		GameScript::Logger                                                               logger;                         // 0158
-		GameScript::HandlePolicy                                                         handlePolicy;                   // 01E0
-		GameScript::ObjectBindPolicy                                                     objectBindPolicy;               // 02A0
-		BSTSmartPointer<BSScript::IStore>                                                scriptStore;                    // 03A0
-		/*GameScript::FragmentSystem*/ std::byte                                         fragmentSystem[0x200];          // 03A8
-		GameScript::Profiler                                                             profiler;                       // 05A8
-		GameScript::RemoteDebugger                                                       remoteDebugger;                 // 06D8
-		GameScript::SavePatcher                                                          savePatcher;                    // 07B0
-		BSSpinLock                                                                       freezeLock;                     // 07B8
-		bool                                                                             frozen;                         // 07C0
-		BSSpinLock                                                                       vmTimeLock;                     // 07C4
-		std::uint32_t                                                                    currentTime;                    // 07CC
-		std::uint32_t                                                                    currentMenuModeTime;            // 07D0
-		std::uint32_t                                                                    currentGameTime;                // 07D4
-		bool                                                                             updateHasBeenRun;               // 07D8
-		bool                                                                             saveLoad;                       // 07D9
-		BSTStaticFreeList<BSTSmartPointer<GameScript::DelayFunctor>, 512>                renderSafeFunctorPool1;         // 07E0
-		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>*/ std::byte renderSafeFunctorQueue1[0x28];  // 27F8
-		BSTStaticFreeList<BSTSmartPointer<GameScript::DelayFunctor>, 512>                renderSafeFunctorPool2;         // 2820
-		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>*/ std::byte renderSafeFunctorQueue2[0x28];  // 4838
-		BSTStaticFreeList<BSTSmartPointer<GameScript::DelayFunctor>, 512>                postRenderFunctorPool1;         // 4860
-		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>*/ std::byte postRenderFunctorQueue1[0x28];  // 6878
-		BSTStaticFreeList<BSTSmartPointer<GameScript::DelayFunctor>, 512>                postRenderFunctorPool2;         // 68A0
-		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>*/ std::byte postRenderFunctorQueue2[0x28];  // 88B8
-		BSSpinLock                                                                       renderSafeQueueLock;            // 88E0
-		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>* */ void*   renderSafeQueueToReadFrom;      // 88E8
-		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>* */ void*   renderSafeQueueToWriteTo;       // 88F0
-		BSSpinLock                                                                       postRenderQueueLock;            // 88F8
-		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>* */ void*   postRenderQueueToReadFrom;      // 8900
-		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>* */ void*   postRenderQueueToWriteTo;       // 8908
-		BSSpinLock                                                                       userLogLock;                    // 8910
-		/*BSTHashMap<BSFixedString, BSScript::ErrorLogger*>*/ std::byte                  userLogs[0x38];                 // 8918
-		BSSpinLock                                                                       statsWarningLock;               // 8950
-		std::uint32_t                                                                    initialSuspendOverageTime;      // 8958
-		std::uint32_t                                                                    initialRunningOverageTime;      // 895C
-		std::uint32_t                                                                    initialStackMemoryOverageTime;  // 8960
-		std::uint32_t                                                                    lastWarningTime;                // 8964
-		std::uint32_t                                                                    overflowFlags;                  // 8968
+		std::uint64_t                                                                    unkD8;                          // 00D8
+		BSTSmartPointer<BSScript::IVirtualMachine>                                       impl;                           // 00E0
+		BSScript::IVMSaveLoadInterface*                                                  saveLoadInterface;              // 00E8
+		BSScript::IVMDebugInterface*                                                     debugInterface;                 // 00F0
+		BSScript::SimpleAllocMemoryPagePolicy                                            memoryPagePolicy;               // 0120
+		BSScript::CompiledScriptLoader                                                   scriptLoader;                   // 0158
+		GameScript::Logger                                                               logger;                         // 01E0
+		GameScript::HandlePolicy                                                         handlePolicy;                   // 02A0
+		GameScript::ObjectBindPolicy                                                     objectBindPolicy;               // 03A0
+		BSTSmartPointer<BSScript::IStore>                                                scriptStore;                    // 03A8
+		/*GameScript::FragmentSystem*/ std::byte                                         fragmentSystem[0x200];          // 05A8
+		GameScript::Profiler                                                             profiler;                       // 06D8
+		GameScript::RemoteDebugger                                                       remoteDebugger;                 // 07B0
+		GameScript::SavePatcher                                                          savePatcher;                    // 07B8
+		BSSpinLock                                                                       freezeLock;                     // 07C0
+		bool                                                                             frozen;                         // 07C4
+		BSSpinLock                                                                       vmTimeLock;                     // 07CC
+		std::uint32_t                                                                    currentTime;                    // 07D0
+		std::uint32_t                                                                    currentMenuModeTime;            // 07D4
+		std::uint32_t                                                                    currentGameTime;                // 07D8
+		bool                                                                             updateHasBeenRun;               // 07D9
+		bool                                                                             saveLoad;                       // 07E0
+		BSTStaticFreeList<BSTSmartPointer<GameScript::DelayFunctor>, 512>                renderSafeFunctorPool1;         // 27F8
+		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>*/ std::byte renderSafeFunctorQueue1[0x28];  // 2820
+		BSTStaticFreeList<BSTSmartPointer<GameScript::DelayFunctor>, 512>                renderSafeFunctorPool2;         // 4838
+		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>*/ std::byte renderSafeFunctorQueue2[0x28];  // 4860
+		BSTStaticFreeList<BSTSmartPointer<GameScript::DelayFunctor>, 512>                postRenderFunctorPool1;         // 6878
+		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>*/ std::byte postRenderFunctorQueue1[0x28];  // 68A0
+		BSTStaticFreeList<BSTSmartPointer<GameScript::DelayFunctor>, 512>                postRenderFunctorPool2;         // 88B8
+		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>*/ std::byte postRenderFunctorQueue2[0x28];  // 88E0
+		BSSpinLock                                                                       renderSafeQueueLock;            // 88E8
+		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>* */ void*   renderSafeQueueToReadFrom;      // 88F0
+		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>* */ void*   renderSafeQueueToWriteTo;       // 88F8
+		BSSpinLock                                                                       postRenderQueueLock;            // 8900
+		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>* */ void*   postRenderQueueToReadFrom;      // 8908
+		/*BSTCommonLLMessageQueue<BSTSmartPointer<GameScript::DelayFunctor>>* */ void*   postRenderQueueToWriteTo;       // 8910
+		BSSpinLock                                                                       userLogLock;                    // 8918
+		/*BSTHashMap<BSFixedString, BSScript::ErrorLogger*>*/ std::byte                  userLogs[0x38];                 // 8950
+		BSSpinLock                                                                       statsWarningLock;               // 8958
+		std::uint32_t                                                                    initialSuspendOverageTime;      // 895C
+		std::uint32_t                                                                    initialRunningOverageTime;      // 8960
+		std::uint32_t                                                                    initialStackMemoryOverageTime;  // 8964
+		std::uint32_t                                                                    lastWarningTime;                // 8968
+		std::uint32_t                                                                    overflowFlags;                  // 8970
 	};
-	static_assert(sizeof(GameVM) == 0x8970);
+	static_assert(sizeof(GameVM) == 0x8978);
 }
