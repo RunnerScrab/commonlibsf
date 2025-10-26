@@ -73,13 +73,6 @@ namespace RE::BSScript
 			return func(this, a_frame);
 		}
 
-		[[nodiscard]] Variable& GetStackFrameVariable(const StackFrame* a_frame, std::uint32_t a_index, std::uint32_t a_pageHint)
-		{
-			using func_t = decltype(&Stack::GetStackFrameVariable);
-			static REL::Relocation<func_t> func{ ID::BSScript::Stack::GetStackFrameVariable };
-			return func(this, a_frame, a_index, a_pageHint);
-		}
-
 		// members
 		IMemoryPagePolicy*                     policy;         // 08
 		void*                                  unk10;          // 10 - something to do with guards, guardPolicy maybe?

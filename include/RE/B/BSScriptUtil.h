@@ -940,10 +940,7 @@ namespace RE::BSScript
 			const auto args = [&]<class T>(std::in_place_type_t<T>, std::size_t a_index) {
 				if (a_stackFrame.size > a_index) {
 					return UnpackVariable<detail::decay_t<T>>(
-						a_stack.GetStackFrameVariable(
-							pframe,
-							static_cast<std::uint32_t>(a_index),
-							page));
+						a_stackFrame.GetVariable(static_cast<std::uint32_t>(a_index),page));
 				} else {
 					assert(false);
 					return T();

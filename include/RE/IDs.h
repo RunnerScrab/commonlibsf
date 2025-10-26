@@ -301,7 +301,12 @@ namespace RE::ID
 			inline constexpr REL::ID ctor{ 0 };                   // 196325
 			inline constexpr REL::ID dtor{ 0 };                   // 196333
 			inline constexpr REL::ID GetStackFrameVariable{ 0 };  // 196367
-			inline constexpr REL::ID GetPageForFrame{ 0 };        // 196366
+			inline constexpr REL::ID GetPageForFrame{ 138020 };   // 196366
+		}
+
+		namespace StackFrame
+		{
+			inline constexpr REL::ID GetVariable{ 84986 };
 		}
 
 		namespace Internal

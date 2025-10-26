@@ -18,9 +18,11 @@ namespace RE::BSScript
 			return parent->GetPageForFrame(this);
 		}
 
-		[[nodiscard]] Variable& GetStackFrameVariable(std::uint32_t a_index, std::uint32_t a_pageHint) const
+		[[nodiscard]] Variable& GetVariable(std::uint32_t a_index, std::uint32_t a_pageHint) const
 		{
-			return parent->GetStackFrameVariable(this, a_index, a_pageHint);
+			using func_t = decltype(&StackFrame::GetVariable);
+			static REL::Relocation<func_t> func{ ID::BSScript::StackFrame::GetVariable };
+			return func(this, a_index, a_pageHint);
 		}
 
 		// members
