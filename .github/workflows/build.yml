@@ -1,36 +1,43 @@
-name: Main CI
+name: build
 
 on:
   pull_request:
-    branches: main
+    branches: [ main ]
     paths:
-      - "src/**"
+      - ".github/workflows/build.yml"
       - "include/**"
-      - ".github/workflows/main_ci_xmake.yml"
+      - "src/**"
       - "xmake.lua"
       - "xmake-rules.lua"
+  push:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
-  build-xmake:
+  xmake:
     runs-on: windows-latest
     strategy:
       fail-fast: false
       matrix:
+        mode:
+          - debug
+          - release
         toolchain:
           - msvc
           - clang-cl
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
-      - name: Setup XMake
+      - name: setup
         uses: xmake-io/github-action-setup-xmake@v1
         with:
           xmake-version: "latest"
 
-      - name: Configure
-        run: xmake config -y --mode=releasedbg --toolchain=${{ matrix.toolchain }}
+      - name: config
+        run: xmake config -y --mode=${{ matrix.mode }} --toolchain=${{ matrix.toolchain }}
 
-      - name: Build
+      - name: build
         run: xmake build -y -vD
