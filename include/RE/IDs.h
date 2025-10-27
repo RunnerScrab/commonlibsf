@@ -4,12 +4,12 @@ namespace RE::ID
 {
 	namespace Activation::Event
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 106834
+		inline constexpr REL::ID GetEventSource{ 63133 }; // 106834
 	}
 
 	namespace ActivityEvents::ActivityCompletedEvent
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 86737
+		inline constexpr REL::ID GetEventSource{ 47920 };  // 86737
 	}
 
 	namespace Actor
@@ -64,37 +64,37 @@ namespace RE::ID
 
 	namespace BarterMenu_BuyItem
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 138993
+		inline constexpr REL::ID GetEventSource{ 91373 };  // 138993
 	}
 
 	namespace BarterMenu_CloseMenu
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 138994
+		inline constexpr REL::ID GetEventSource{ 91378 };  // 138994
 	}
 
 	namespace BarterMenu_HideModel
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 138995
+		inline constexpr REL::ID GetEventSource{ 91376 };  // 138995
 	}
 
 	namespace BarterMenu_LoadModel
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 138996
+		inline constexpr REL::ID GetEventSource{ 91377 };  // 138996
 	}
 
 	namespace BarterMenu_SellItem
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 138997
+		inline constexpr REL::ID GetEventSource{ 91372 };  // 138997
 	}
 
 	namespace BarterMenu_SetMouseOverModel
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 138998
+		inline constexpr REL::ID GetEventSource{ 91371 };  // 138998
 	}
 
 	namespace BarterMenu_ViewedItem
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 139000
+		inline constexpr REL::ID GetEventSource{ 91374 };  // 139000
 	}
 
 	namespace BaseExtraList
