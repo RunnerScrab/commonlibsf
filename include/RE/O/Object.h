@@ -23,6 +23,8 @@ namespace RE::BSScript
 
 		~Object()
 		{
+			// TODO: The destructor was inlined in version Starfield 1.15 and still needs to be
+			// pieced together or reimplemented
 			dtor();
 		}
 
@@ -44,26 +46,9 @@ namespace RE::BSScript
 		[[nodiscard]] constexpr bool IsInitialized() const noexcept { return static_cast<bool>(initialized); }
 		[[nodiscard]] constexpr bool IsValid() const noexcept { return static_cast<bool>(valid); }
 
-		[[nodiscard]] std::uint32_t DecRef() const
-		{
-			using func_t = decltype(&Object::DecRef);
-			static REL::Relocation<func_t> func{ ID::BSScript::Object::DecRef };
-			return func(this);
-		}
-
-		[[nodiscard]] std::size_t GetHandle() const
-		{
-			using func_t = decltype(&Object::GetHandle);
-			static REL::Relocation<func_t> func{ ID::BSScript::Object::GetHandle };
-			return func(this);
-		}
-
-		void IncRef() const
-		{
-			using func_t = decltype(&Object::IncRef);
-			static REL::Relocation<func_t> func{ ID::BSScript::Object::IncRef };
-			return func(this);
-		}
+		[[nodiscard]] std::uint32_t DecRef();
+		[[nodiscard]] std::size_t   GetHandle();
+		void                        IncRef();
 
 		SF_HEAP_REDEFINE_NEW();
 
@@ -84,7 +69,7 @@ namespace RE::BSScript
 		void*                           lockStructure;             // 30
 		IObjectHandlePolicy*            handlePolicy;              // 38
 		std::size_t                     handle;                    // 40
-		std::uint32_t                   refCountAndHandleLock;     // 48
+		volatile std::uint32_t          refCountAndHandleLock;     // 48
 	};
 	static_assert(sizeof(Object) == 0x50);
 }

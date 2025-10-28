@@ -4,7 +4,7 @@ namespace RE::ID
 {
 	namespace Activation::Event
 	{
-		inline constexpr REL::ID GetEventSource{ 63133 }; // 106834
+		inline constexpr REL::ID GetEventSource{ 63133 };  // 106834
 	}
 
 	namespace ActivityEvents::ActivityCompletedEvent
@@ -274,9 +274,9 @@ namespace RE::ID
 
 		namespace Object
 		{
-			inline constexpr REL::ID ctor{ 0 };       // 196025
-			inline constexpr REL::ID dtor{ 0 };       // 196032
-			inline constexpr REL::ID GetHandle{ 0 };  // 196069
+			inline constexpr REL::ID ctor{ 137778 };  // 196025
+			inline constexpr REL::ID dtor{ 0 };       // 196032 - inlined
+			inline constexpr REL::ID GetHandle{ 0 };  // 196069 - inlined
 			inline constexpr REL::ID SetHandle{ 0 };  // 196079
 			inline constexpr REL::ID IncRef{ 0 };     // 37879
 			inline constexpr REL::ID DecRef{ 0 };     // 196057
