@@ -128,4 +128,3 @@ namespace RE::BSScript
 		return;
 	}
 }
-
