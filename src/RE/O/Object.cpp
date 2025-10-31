@@ -18,9 +18,8 @@ namespace RE::BSScript
 		ObjectTypeInfo* pType = this->type.get();
 
 		//BSTSmartPointer will decrement type's refcount automatically at end of scope
-		if (pType->QRefCount() == 1)
-		{
-			//This stops the smart pointer from dereferencing a dangling ObjectTypeInfo pointer after 
+		if (pType->QRefCount() == 1) {
+			//This stops the smart pointer from dereferencing a dangling ObjectTypeInfo pointer after
 			//ObjectTypeInfoDealloc frees Object::type (and also does unknown global/TLS variable plumbing)
 			this->type->IncRef();
 			this->type.reset();
